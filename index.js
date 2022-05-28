@@ -26,10 +26,14 @@ function buscarInformacoes2() {
 }
 
 buscarInformacoes2()
-.then((resultado) => {
-  console.log(resultado);
-})
-.catch(() => {})
-.finally(() => {
-  console.log('finally');
-});
+  .then((resultado) => {
+    console.log(1, resultado);
+    return buscarInformacoes2();
+  })
+  .then((resultado) => {
+    console.log(2, resultado);
+  })
+  .catch(() => {})
+  .finally(() => {
+    console.log('finally');
+  });
