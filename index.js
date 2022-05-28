@@ -19,7 +19,7 @@ function buscarInformacoes2() {
   let resultado = [];
   return new Promise((resolve) => {
     setTimeout(() => {
-      resultado = ['mathias', 'melissa'];
+      resultado = [];
       resolve(resultado);
     }, 2000);
   });
@@ -27,8 +27,10 @@ function buscarInformacoes2() {
 
 buscarInformacoes2()
   .then((resultado) => {
-    console.log(1, resultado);
-    return Promise.reject('Erro na linha 22');
+    if (resultado.length === 0) {
+      return Promise.reject('Erro na linha 22');
+    }
+    return buscarInformacoes2();
   })
   .then((resultado) => {
     console.log(2, resultado);
