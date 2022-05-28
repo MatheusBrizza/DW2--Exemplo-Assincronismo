@@ -28,12 +28,14 @@ function buscarInformacoes2() {
 buscarInformacoes2()
   .then((resultado) => {
     console.log(1, resultado);
-    return buscarInformacoes2();
+    return Promise.reject('Erro na linha 22');
   })
   .then((resultado) => {
     console.log(2, resultado);
   })
-  .catch(() => {})
+  .catch((erro) => {
+    console.log(erro);
+  })
   .finally(() => {
     console.log('finally');
   });
