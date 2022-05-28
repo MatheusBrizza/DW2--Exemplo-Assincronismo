@@ -19,12 +19,12 @@ function buscarInformacoes2() {
   let resultado = [];
   return new Promise((resolve) => {
     setTimeout(() => {
-      resultado = [];
+      resultado = ['mathias', 'melissa'];
       resolve(resultado);
     }, 2000);
   });
 }
-
+/*
 buscarInformacoes2()
   .then((resultado) => {
     if (resultado.length === 0) {
@@ -40,4 +40,21 @@ buscarInformacoes2()
   })
   .finally(() => {
     console.log('finally');
-  });
+  }); 
+*/
+
+// async e await
+async function main() {
+  try {
+    const resultado = await buscarInformacoes2();
+    console.log(resultado);
+    const resultado2 = buscarInformacoes2();
+    console.log(resultado2);
+  } catch (errp) {
+    console.log(erro);
+  } finally {
+    console.log('finalizei');
+  }
+}
+
+main();
