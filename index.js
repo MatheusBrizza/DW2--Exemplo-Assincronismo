@@ -1,3 +1,14 @@
 // run `node index.js` in the terminal
 
-console.log(`Hello Node.js v${process.versions.node}!`);
+function buscarInformacoes(callback) {
+  let resultado = [];
+  setTimeout(() => {
+    resultado = ['mathias', 'melissa'];
+    callback(resultado);
+  }, 2000);
+  return resultado;
+}
+
+buscarInformacoes((resultado) => {
+  console.log(resultado);
+});
